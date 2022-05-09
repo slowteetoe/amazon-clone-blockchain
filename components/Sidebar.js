@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { AmazonContext } from "../context/AmazonContext";
 import { ConnectButton } from "web3uikit";
 import logo from "../assets/amazon_logo.png";
 import logoFull from "../assets/amazon_logo_full.png";
@@ -11,9 +11,6 @@ import { AiOutlineHistory } from "react-icons/ai";
 import { faker } from "@faker-js/faker";
 
 const Sidebar = () => {
-  const isAuthenticated = true;
-  const [username, setUsername] = useState();
-  useEffect(()=>{setUsername(faker.name.firstName());}, []);
   const styles = {
     container: `h-full w-[300px] flex flex-col bg-[#fff] static`,
     profile: ` w-full py-16 flex flex-col justify-center items-center rounded-r-3xl bg-gradient-to-t from-[#0d141c] to-[#42667e] mt-[40px] mb-[50px] border-2 border-[#fb9701]`,
@@ -29,6 +26,16 @@ const Sidebar = () => {
     username: `flex items-center w-full justify-center`,
     setNickname: `text-lg font-bold flex flex-1 items-center mt-[20px] mb-[20px] text-white`,
   };
+
+  const {
+    isAuthenticated,
+    nickname,
+    setNickname,
+    username,
+    setUsername,
+    handleSetUsername,
+  } = useContext(AmazonContext);
+
   return (
     <div className={styles.container}>
       <div className={styles.profile}>
@@ -48,17 +55,17 @@ const Sidebar = () => {
                 <div className={styles.username}>
                   <input
                     type="text"
-                    placeholder="Username..."
+                    placeholder="Username...."
                     className={styles.usernameInput}
-                    //  value={nickname}
-                    //  onChange={e => setNickname(e.target.value)}
+                    value={nickname}
+                    onChange={(e) => setNickname(e.target.value)}
                   />
                 </div>
                 <button
                   className={styles.setNickname}
-                  // onClick= {handleSetUsername}
+                  onClick={handleSetUsername}
                 >
-                  Set nickname
+                  Set Nickname
                 </button>
               </>
             ) : (
