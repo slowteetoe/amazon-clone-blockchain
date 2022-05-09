@@ -8,7 +8,6 @@ import logoFull from "../assets/amazon_logo_full.png";
 import { FaBox } from "react-icons/fa";
 import { BsFillBookmarkFill, BsFillPersonFill } from "react-icons/bs";
 import { AiOutlineHistory } from "react-icons/ai";
-import { faker } from "@faker-js/faker";
 
 const Sidebar = () => {
   const styles = {

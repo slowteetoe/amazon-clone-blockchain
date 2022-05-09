@@ -18,7 +18,7 @@ const Cards = () => {
       src: "https://media2.giphy.com/media/cczZn3x7985TzzrVqp/200w.webp?cid=ecf05e47py36g0m2coccizijeuwjp3pv2q3fcqqn23gslcie&rid=200w.webp&ct=g",
     },
   };
-  console.log(assets);
+
   return (
     <div className={styles.container}>
       <div className={styles.title}>New Release</div>

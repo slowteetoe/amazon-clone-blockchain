@@ -70,7 +70,6 @@ export const AmazonProvider = ({ children }) => {
   const getAssets = async () => {
     try {
       await enableWeb3();
-      console.log("running");
       setAssets(assetsData);
     } catch (error) {
       console.log(error);
